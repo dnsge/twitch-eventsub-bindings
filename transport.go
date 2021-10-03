@@ -7,6 +7,13 @@ type Request struct {
 	Transport Transport   `json:"transport"`
 }
 
+type RequestStatus struct {
+	Data         []Subscription `json:"data"`
+	Total        int            `json:"total"`
+	TotalCost    int            `json:"total_cost"`
+	MaxTotalCost int            `json:"max_total_cost"`
+}
+
 type Response struct {
 	Subscription Subscription `json:"subscription"`
 	Event        interface{}  `json:"event"`
