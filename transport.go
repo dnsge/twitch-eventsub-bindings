@@ -1,5 +1,7 @@
 package eventsub_bindings
 
+import "encoding/json"
+
 type Request struct {
 	Type      string      `json:"type"`
 	Version   string      `json:"version"`
@@ -14,9 +16,9 @@ type RequestStatus struct {
 	MaxTotalCost int            `json:"max_total_cost"`
 }
 
-type Response struct {
-	Subscription Subscription `json:"subscription"`
-	Event        interface{}  `json:"event"`
+type EventNotification struct {
+	Subscription Subscription    `json:"subscription"`
+	Event        json.RawMessage `json:"event"`
 }
 
 type SubscriptionChallenge struct {
