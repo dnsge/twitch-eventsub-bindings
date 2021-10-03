@@ -2,7 +2,7 @@ package eventsub_bindings
 
 type Choices struct {
 	// ID for the choice.
-	Id string `json:"id"`
+	ID string `json:"id"`
 	// Text displayed for the choice.
 	Title string `json:"title"`
 	// Number of votes received via Bits.
@@ -59,7 +59,7 @@ type GlobalCooldown struct {
 
 type Reward struct {
 	// The reward identifier.
-	Id string `json:"id"`
+	ID string `json:"id"`
 	// The reward name.
 	Title string `json:"title"`
 	// The reward cost.
@@ -70,7 +70,7 @@ type Reward struct {
 
 type Outcomes struct {
 	// The outcome ID.
-	Id string `json:"id"`
+	ID string `json:"id"`
 	// The outcome title.
 	Title string `json:"title"`
 	// The color for the outcome. Valid values are pink and blue.
@@ -111,7 +111,7 @@ type Emote struct {
 	// The index of where the Emote ends in the text.
 	End int `json:"end"`
 	// The emote ID.
-	Id string `json:"id"`
+	ID string `json:"id"`
 }
 
 type Product struct {
