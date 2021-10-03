@@ -19,8 +19,23 @@ type Response struct {
 	Event        interface{}  `json:"event"`
 }
 
+type SubscriptionChallenge struct {
+	Challenge    string       `json:"challenge"`
+	Subscription Subscription `json:"subscription"`
+}
+
 type Transport struct {
 	Method   string `json:"method"`
 	Callback string `json:"callback"`
 	Secret   string `json:"secret"`
+}
+
+type ResponseHeaders struct {
+	MessageID           string `header:"Twitch-Eventsub-Message-Id"`
+	MessageRetry        int    `header:"Twitch-Eventsub-Message-Retry"`
+	MessageType         string `header:"Twitch-Eventsub-Message-Type"`
+	MessageSignature    string `header:"Twitch-Eventsub-Message-Signature"`
+	MessageTimestamp    string `header:"Twitch-Eventsub-Message-Timestamp"`
+	SubscriptionType    string `header:"Twitch-Eventsub-Subscription-Type"`
+	SubscriptionVersion string `header:"Twitch-Eventsub-Subscription-Version"`
 }
