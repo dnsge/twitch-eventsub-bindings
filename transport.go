@@ -2,6 +2,10 @@ package eventsub_bindings
 
 import "encoding/json"
 
+type Pagination struct {
+	Cursor string `json:"cursor"`
+}
+
 type Request struct {
 	Type      string      `json:"type"`
 	Version   string      `json:"version"`
@@ -14,6 +18,7 @@ type RequestStatus struct {
 	Total        int            `json:"total"`
 	TotalCost    int            `json:"total_cost"`
 	MaxTotalCost int            `json:"max_total_cost"`
+	Pagination   *Pagination    `json:"pagination"`
 }
 
 type EventNotification struct {
