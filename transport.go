@@ -14,11 +14,14 @@ type Request struct {
 }
 
 type RequestStatus struct {
-	Data         []Subscription `json:"data"`
-	Total        int            `json:"total"`
-	TotalCost    int            `json:"total_cost"`
-	MaxTotalCost int            `json:"max_total_cost"`
-	Pagination   *Pagination    `json:"pagination"`
+	Data []Subscription `json:"data"`
+	// How much the subscription counts against your application’s limit.
+	Total int `json:"total"`
+	// The current sum of all your subscription costs.
+	TotalCost int `json:"total_cost"`
+	// Your application’s subscription limit.
+	MaxTotalCost int         `json:"max_total_cost"`
+	Pagination   *Pagination `json:"pagination"`
 }
 
 type EventNotification struct {
