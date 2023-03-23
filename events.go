@@ -173,7 +173,7 @@ type EventChannelModeratorRemove struct {
 
 type EventChannelPollBegin struct {
 	// ID of the poll.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -183,7 +183,7 @@ type EventChannelPollBegin struct {
 	// Question displayed for the poll.
 	Title string `json:"title"`
 	// An array of choices for the poll.
-	Choices Choices `json:"choices"`
+	Choices []PollChoice `json:"choices"`
 	// The Bits voting settings for the poll.
 	BitsVoting BitsVoting `json:"bits_voting"`
 	// The Channel Points voting settings for the poll.
@@ -196,7 +196,7 @@ type EventChannelPollBegin struct {
 
 type EventChannelPollProgress struct {
 	// ID of the poll.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -206,7 +206,7 @@ type EventChannelPollProgress struct {
 	// Question displayed for the poll.
 	Title string `json:"title"`
 	// An array of choices for the poll. Includes vote counts.
-	Choices Choices `json:"choices"`
+	Choices []PollChoice `json:"choices"`
 	// The Bits voting settings for the poll.
 	BitsVoting BitsVoting `json:"bits_voting"`
 	// The Channel Points voting settings for the poll.
@@ -219,7 +219,7 @@ type EventChannelPollProgress struct {
 
 type EventChannelPollEnd struct {
 	// ID of the poll.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -229,7 +229,7 @@ type EventChannelPollEnd struct {
 	// Question displayed for the poll.
 	Title string `json:"title"`
 	// An array of choices for the poll. Includes vote counts.
-	Choices Choices `json:"choices"`
+	Choices []PollChoice `json:"choices"`
 	// The Bits voting settings for the poll.
 	BitsVoting BitsVoting `json:"bits_voting"`
 	// The Channel Points voting settings for the poll.
@@ -244,7 +244,7 @@ type EventChannelPollEnd struct {
 
 type EventChannelPointsRewardAdd struct {
 	// The reward identifier.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -288,7 +288,7 @@ type EventChannelPointsRewardAdd struct {
 
 type EventChannelPointsRewardUpdate struct {
 	// The reward identifier.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -332,7 +332,7 @@ type EventChannelPointsRewardUpdate struct {
 
 type EventChannelPointsRewardRemove struct {
 	// The reward identifier.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -376,7 +376,7 @@ type EventChannelPointsRewardRemove struct {
 
 type EventChannelPointsRewardRedemptionAdd struct {
 	// The redemption identifier.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -401,7 +401,7 @@ type EventChannelPointsRewardRedemptionAdd struct {
 
 type EventChannelPointsRewardRedemptionUpdate struct {
 	// The redemption identifier.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -426,7 +426,7 @@ type EventChannelPointsRewardRedemptionUpdate struct {
 
 type EventChannelPredictionBegin struct {
 	// Channel Points Prediction ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -436,7 +436,7 @@ type EventChannelPredictionBegin struct {
 	// Title for the Channel Points Prediction.
 	Title string `json:"title"`
 	// An array of outcomes for the Channel Points Prediction.
-	Outcomes Outcomes `json:"outcomes"`
+	Outcomes []PredictionOutcome `json:"outcomes"`
 	// The time the Channel Points Prediction started.
 	StartedAt string `json:"started_at"`
 	// The time the Channel Points Prediction will automatically lock.
@@ -445,7 +445,7 @@ type EventChannelPredictionBegin struct {
 
 type EventChannelPredictionProgress struct {
 	// Channel Points Prediction ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -455,7 +455,7 @@ type EventChannelPredictionProgress struct {
 	// Title for the Channel Points Prediction.
 	Title string `json:"title"`
 	// An array of outcomes for the Channel Points Prediction. Includes top_predictors.
-	Outcomes Outcomes `json:"outcomes"`
+	Outcomes []PredictionOutcome `json:"outcomes"`
 	// The time the Channel Points Prediction started.
 	StartedAt string `json:"started_at"`
 	// The time the Channel Points Prediction will automatically lock.
@@ -464,7 +464,7 @@ type EventChannelPredictionProgress struct {
 
 type EventChannelPredictionLock struct {
 	// Channel Points Prediction ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -474,7 +474,7 @@ type EventChannelPredictionLock struct {
 	// Title for the Channel Points Prediction.
 	Title string `json:"title"`
 	// An array of outcomes for the Channel Points Prediction. Includes top_predictors.
-	Outcomes Outcomes `json:"outcomes"`
+	Outcomes []PredictionOutcome `json:"outcomes"`
 	// The time the Channel Points Prediction started.
 	StartedAt string `json:"started_at"`
 	// The time the Channel Points Prediction was locked.
@@ -483,7 +483,7 @@ type EventChannelPredictionLock struct {
 
 type EventChannelPredictionEnd struct {
 	// Channel Points Prediction ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -495,7 +495,7 @@ type EventChannelPredictionEnd struct {
 	// ID of the winning outcome.
 	WinningOutcomeID string `json:"winning_outcome_id"`
 	// An array of outcomes for the Channel Points Prediction. Includes top_predictors.
-	Outcomes Outcomes `json:"outcomes"`
+	Outcomes []PredictionOutcome `json:"outcomes"`
 	// The status of the Channel Points Prediction. Valid values are resolved and canceled.
 	Status string `json:"status"`
 	// The time the Channel Points Prediction started.
@@ -575,7 +575,7 @@ type EventChannelSubscriptionMessage struct {
 
 type EventDropEntitlementGrant struct {
 	// Individual event ID, as assigned by EventSub. Use this for de-duplicating messages.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// Entitlement object.
 	Data []struct {
 		// The ID of the organization that owns the game that has Drops enabled.
@@ -605,7 +605,7 @@ type EventBitsTransactionCreate struct {
 	// Client ID of the extension.
 	ExtensionClientID string `json:"extension_client_id"`
 	// Transaction ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The transaction’s broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The transaction’s broadcaster login.
@@ -624,7 +624,7 @@ type EventBitsTransactionCreate struct {
 
 type EventGoals struct {
 	// An ID that identifies this event.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// An ID that uniquely identifies the broadcaster.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The broadcaster’s display name.
@@ -655,7 +655,7 @@ type EventGoals struct {
 
 type EventHypeTrainBegin struct {
 	// The Hype Train ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -680,7 +680,7 @@ type EventHypeTrainBegin struct {
 
 type EventHypeTrainProgress struct {
 	// The Hype Train ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -707,7 +707,7 @@ type EventHypeTrainProgress struct {
 
 type EventHypeTrainEnd struct {
 	// The Hype Train ID.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The requested broadcaster ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The requested broadcaster login.
@@ -730,7 +730,7 @@ type EventHypeTrainEnd struct {
 
 type EventStreamOnline struct {
 	// The id of the stream.
- 	ID string `json:"id"`
+	ID string `json:"id"`
 	// The broadcaster’s user id.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The broadcaster’s user login.

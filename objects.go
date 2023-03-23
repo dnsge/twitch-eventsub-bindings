@@ -1,6 +1,6 @@
 package eventsub_bindings
 
-type Choices struct {
+type PollChoice struct {
 	// ID for the choice.
 	ID string `json:"id"`
 	// Text displayed for the choice.
@@ -68,7 +68,7 @@ type Reward struct {
 	Prompt string `json:"prompt"`
 }
 
-type Outcomes struct {
+type PredictionOutcome struct {
 	// The outcome ID.
 	ID string `json:"id"`
 	// The outcome title.
