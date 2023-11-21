@@ -212,6 +212,7 @@ type ConditionChannelChatMessageDelete struct {
 }
 
 type ConditionChannelChatNotification struct {
+	// User ID of the channel to receive chat notification events for.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
 	// The user ID to read chat as.
 	UserID string `json:"user_id,omitempty"`
