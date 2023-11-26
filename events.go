@@ -826,7 +826,7 @@ type EventChannelChatMessageDelete struct {
 	TargetUserLogin string `json:"target_user_login"`
 }
 
-type EventChatNotification struct {
+type EventChannelChatNotification struct {
 	// Name of the event
 	Name string `json:"name"`
 	// Type of the event
