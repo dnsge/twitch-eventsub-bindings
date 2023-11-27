@@ -790,18 +790,18 @@ type EventUserUpdate struct {
 type EventChannelChatClear struct {
 	// 	The broadcaster user ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
-	// The broadcaster user login.
+	// The broadcaster display name.
 	BroadcasterUserName string `json:"broadcaster_user_name"`
-	// The broadcaster user display name.
+	// The broadcaster login.
 	BroadcasterUserLogin string `json:"broadcaster_user_login"`
 }
 
 type EventChannelChatClearUserMessages struct {
 	// The broadcaster user ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
-	// The broadcaster user login.
+	// The broadcaster display name.
 	BroadcasterUserName string `json:"broadcaster_user_name"`
-	// The broadcaster user display name.
+	// The broadcaster login.
 	BroadcasterUserLogin string `json:"broadcaster_user_login"`
 	// The ID of the user that was banned or put in a timeout. All of their messages are deleted.
 	TargetUserID string `json:"target_user_id"`
@@ -814,9 +814,9 @@ type EventChannelChatClearUserMessages struct {
 type EventChannelChatMessageDelete struct {
 	// The broadcaster user ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
-	// The broadcaster user login.
+	// The broadcaster display name.
 	BroadcasterUserName string `json:"broadcaster_user_name"`
-	// The broadcaster user display name.
+	// The broadcaster login.
 	BroadcasterUserLogin string `json:"broadcaster_user_login"`
 	// The ID of the user whose message was deleted.
 	TargetUserID string `json:"target_user_id"`
@@ -824,52 +824,48 @@ type EventChannelChatMessageDelete struct {
 	TargetUserName string `json:"target_user_name"`
 	// The user login of the user whose message was deleted.
 	TargetUserLogin string `json:"target_user_login"`
+	// A UUID that identifies the message that was removed.
+	MessageID string `json:"message_id"`
 }
 
 type EventChannelChatNotification struct {
-	// Name of the event
-	Name string `json:"name"`
-	// Type of the event
-	Type string `json:"type"`
-	// Description of the event
-	Description string `json:"description"`
-	// The broadcaster user ID
+	// The broadcaster user ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
-	// The broadcaster display name
+	// The broadcaster display name.
 	BroadcasterUserName string `json:"broadcaster_user_name"`
-	// The broadcaster login
+	// The broadcaster login.
 	BroadcasterUserLogin string `json:"broadcaster_user_login"`
-	// The user ID of the user that sent the message
+	// The user ID of the user that sent the message.
 	ChatterUserID string `json:"chatter_user_id"`
-	// The user name of the user that sent the message
+	// The user name of the user that sent the message.
 	ChatterUserName string `json:"chatter_user_name"`
-	// The user login of the user that sent the message
+	// The user login of the user that sent the message.
 	ChatterUserLogin string `json:"chatter_user_login"`
-	// Whether or not the chatter is anonymous
+	// Whether or not the chatter is anonymous.
 	ChatterIsAnonymous bool `json:"chatter_is_anonymous"`
-	// The color of the user’s name in the chat room
+	// The color of the user’s name in the chat room.
 	Color string `json:"color"`
-	// List of chat badges
+	// List of chat badges.
 	Badges []ChatNotificationBadge `json:"badges"`
-	// The message Twitch shows in the chat room for this notice
+	// The message Twitch shows in the chat room for this notice.
 	SystemMessage string `json:"system_message"`
-	// A UUID that identifies the message
+	// A UUID that identifies the message.
 	MessageID string `json:"message_id"`
 	// The structured chat message
 	Message ChatNotificationMessage `json:"message"`
 	// The type of notice. Possible values are:
-	// sub
-	// resub
-	// sub_gift
-	// community_sub_gift
-	// gift_paid_upgrade
-	// prime_paid_upgrade
-	// raid
-	// unraid
-	// pay_it_forward
-	// announcement
-	// bits_badge_tier
-	// charity_donation
+	//  - sub
+	//  - resub
+	//  - sub_gift
+	//  - community_sub_gift
+	//  - gift_paid_upgrade
+	//  - prime_paid_upgrade
+	//  - raid
+	//  - unraid
+	//  - pay_it_forward
+	//  - announcement
+	//  - bits_badge_tier
+	//  - charity_donation
 	NoticeType string `json:"notice_type"`
 	// Information about the sub event. Null if notice_type is not sub.
 	Sub *ChatNotificationSubEvent `json:"sub,omitempty"`
@@ -918,10 +914,10 @@ type ChatNotificationMessage struct {
 // ChatNotificationMessageFragment represents a fragment of a chat message.
 type ChatNotificationMessageFragment struct {
 	// The type of message fragment. Possible values:
-	// text
-	// cheermote
-	// emote
-	// mention
+	//  - text
+	//  - cheermote
+	//  - emote
+	//  - mention
 	Type string `json:"type"`
 	// Message text in fragment
 	Text string `json:"text"`
@@ -952,8 +948,8 @@ type ChatNotificationMessageFragmentEmote struct {
 	// The ID of the broadcaster who owns the emote.
 	OwnerID string `json:"owner_id"`
 	// The formats that the emote is available in. For example, if the emote is available only as a static PNG, the array contains only static. But if the emote is available as a static PNG and an animated GIF, the array contains static and animated. The possible formats are:
-	// animated — An animated GIF is available for this emote.
-	// static — A static PNG file is available for this emote.
+	//  - animated — An animated GIF is available for this emote.
+	//  - static — A static PNG file is available for this emote.
 	Format []string `json:"format"`
 }
 
@@ -970,9 +966,9 @@ type ChatNotificationMessageFragmentMention struct {
 // ChatNotificationSubEvent SubEvent represents information about the sub event.
 type ChatNotificationSubEvent struct {
 	// The type of subscription plan being used. Possible values are:
-	// 1000 — First level of paid or Prime subscription
-	// 2000 — Second level of paid subscription
-	// 3000 — Third level of paid subscription
+	//  - 1000 — First level of paid or Prime subscription
+	//  - 2000 — Second level of paid subscription
+	//  - 3000 — Third level of paid subscription
 	SubTier string `json:"sub_tier"`
 
 	// Indicates if the subscription was obtained through Amazon Prime.
@@ -994,9 +990,9 @@ type ChatNotificationResubEvent struct {
 	StreakMonths int `json:"streak_months,omitempty"`
 
 	// The type of subscription plan being used. Possible values are:
-	// 1000 — First level of paid or Prime subscription
-	// 2000 — Second level of paid subscription
-	// 3000 — Third level of paid subscription
+	//  - 1000 — First level of paid or Prime subscription
+	//  - 2000 — Second level of paid subscription
+	//  - 3000 — Third level of paid subscription
 	SubTier string `json:"sub_tier"`
 
 	// Indicates if the resub was obtained through Amazon Prime.
@@ -1036,9 +1032,9 @@ type ChatNotificationSubGiftEvent struct {
 	RecipientUserLogin string `json:"recipient_user_login"`
 
 	// The type of subscription plan being used. Possible values are:
-	// 1000 — First level of paid subscription
-	// 2000 — Second level of paid subscription
-	// 3000 — Third level of paid subscription
+	//  - 1000 — First level of paid subscription
+	//  - 2000 — Second level of paid subscription
+	//  - 3000 — Third level of paid subscription
 	SubTier string `json:"sub_tier"`
 
 	// Optional. The ID of the associated community gift. Null if not associated with a community gift.
@@ -1054,9 +1050,9 @@ type ChatNotificationCommunitySubGiftEvent struct {
 	Total int `json:"total"`
 
 	// The type of subscription plan being used. Possible values are:
-	// 1000 — First level of paid subscription
-	// 2000 — Second level of paid subscription
-	// 3000 — Third level of paid subscription
+	//  - 1000 — First level of paid subscription
+	//  - 2000 — Second level of paid subscription
+	//  - 3000 — Third level of paid subscription
 	SubTier string `json:"sub_tier"`
 
 	// Optional. The amount of gifts the gifter has given in this channel. Null if anonymous.
@@ -1081,9 +1077,9 @@ type ChatNotificationGiftPaidUpgradeEvent struct {
 // ChatNotificationPrimePaidUpgradeEvent represents information about the Prime gift paid upgrade event.
 type ChatNotificationPrimePaidUpgradeEvent struct {
 	// The type of subscription plan being used. Possible values are:
-	// 1000 — First level of paid subscription
-	// 2000 — Second level of paid subscription
-	// 3000 — Third level of paid subscription
+	//  - 1000 — First level of paid subscription
+	//  - 2000 — Second level of paid subscription
+	//  - 3000 — Third level of paid subscription
 	SubTier string `json:"sub_tier"`
 }
 
