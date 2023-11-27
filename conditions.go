@@ -189,3 +189,31 @@ type ConditionUserUpdate struct {
 	// The user ID for the user you want update notifications for.
 	UserID string `json:"user_id"`
 }
+
+type ConditionChannelChatClear struct {
+	// User ID of the channel to receive chat clear events for.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The user ID to read chat as.
+	UserID string `json:"user_id"`
+}
+
+type ConditionChannelChatClearUserMessages struct {
+	// User ID of the channel to receive chat clear events for.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The user ID to read chat as.
+	UserID string `json:"user_id"`
+}
+
+type ConditionChannelChatMessageDelete struct {
+	// User ID of the channel to receive chat message delete events for.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The user ID to read chat as.
+	UserID string `json:"user_id"`
+}
+
+type ConditionChannelChatNotification struct {
+	// User ID of the channel to receive chat notification events for.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The user ID to read chat as.
+	UserID string `json:"user_id"`
+}

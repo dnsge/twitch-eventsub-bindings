@@ -106,9 +106,9 @@ type Message struct {
 }
 
 type Emote struct {
-	// The index of where the Emote starts in the text.
+	// The index of where the ChatNotificationMessageFragmentEmote starts in the text.
 	Begin int `json:"begin"`
-	// The index of where the Emote ends in the text.
+	// The index of where the ChatNotificationMessageFragmentEmote ends in the text.
 	End int `json:"end"`
 	// The emote ID.
 	ID string `json:"id"`

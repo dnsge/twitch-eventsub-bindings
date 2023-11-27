@@ -319,3 +319,39 @@ func (s *Subscription) ConditionUserUpdate() (*ConditionUserUpdate, error) {
 		return &condition, json.Unmarshal(data, &condition)
 	}
 }
+
+func (s *Subscription) ConditionChannelChatClear() (*ConditionChannelChatClear, error) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelChatClear
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
+
+func (s *Subscription) ConditionChannelChatClearUserMessages() (*ConditionChannelChatClearUserMessages, error) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelChatClearUserMessages
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
+
+func (s *Subscription) ConditionChannelChatMessageDelete() (*ConditionChannelChatMessageDelete, error) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelChatMessageDelete
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
+
+func (s *Subscription) ConditionChannelChatNotification() (*ConditionChannelChatNotification, error) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelChatNotification
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
