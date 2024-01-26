@@ -190,6 +190,13 @@ type ConditionUserUpdate struct {
 	UserID string `json:"user_id"`
 }
 
+type ConditionChannelChatMessage struct {
+	// User ID of the channel to receive chat message events for.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The user ID to read chat as.
+	UserID string `json:"user_id"`
+}
+
 type ConditionChannelChatClear struct {
 	// User ID of the channel to receive chat clear events for.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
