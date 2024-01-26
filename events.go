@@ -787,6 +787,41 @@ type EventUserUpdate struct {
 	Description string `json:"description"`
 }
 
+type EventChannelChatMessage struct {
+	// The broadcaster user ID.
+	BroadcasterUserID string `json:"broadcaster_user_id"`
+	// The broadcaster display name.
+	BroadcasterUserName string `json:"broadcaster_user_name"`
+	// The broadcaster login.
+	BroadcasterUserLogin string `json:"broadcaster_user_login"`
+	// The user ID of the user that sent the message.
+	ChatterUserID string `json:"chatter_user_id"`
+	// The user name of the user that sent the message.
+	ChatterUserName string `json:"chatter_user_name"`
+	// The user login of the user that sent the message.
+	ChatterUserLogin string `json:"chatter_user_login"`
+	// A UUID that identifies the message.
+	MessageID string `json:"message_id"`
+	// The structured chat message.
+	Message *ChatNotificationMessage `json:"message"`
+	// The type of message. Possible values:
+	//  - text
+	//  - channel_points_highlighted
+	//  - channel_points_sub_only
+	//  - user_intro
+	MessageType string `json:"message_type"`
+	// List of chat badges.
+	Badges []ChatNotificationBadge `json:"badges"`
+	// Optional. Metadata if this message is a cheer.
+	Cheer *ChatCheer `json:"cheer,omitempty"`
+	// The color of the user’s name in the chat room. This is a hexadecimal RGB color code in the form, #<RGB>. This tag may be empty if it is never set.
+	Color string `json:"color"`
+	// Optional. Metadata if this message is a reply.
+	Reply *ChatReply `json:"reply,omitempty"`
+	// Optional. The ID of a channel points custom reward that was redeemed.
+	ChannelPointsCustomRewardID string `json:"channel_points_custom_reward_id,omitempty"`
+}
+
 type EventChannelChatClear struct {
 	// 	The broadcaster user ID.
 	BroadcasterUserID string `json:"broadcaster_user_id"`
@@ -1153,4 +1188,32 @@ type ChatNotificationCharityDonationEventDonationAmount struct {
 type ChatNotificationBitsBadgeTierEvent struct {
 	// The tier of the Bits badge the user just earned. For example, 100, 1000, or 10000.
 	Tier int `json:"tier"`
+}
+
+// ChatReply represents metadata about a reply message.
+type ChatReply struct {
+	// An ID that uniquely identifies the parent message that this message is replying to.
+	ParentMessageID string `json:"parent_message_id"`
+	// The message body of the parent message.
+	ParentMessageBody string `json:"parent_message_body"`
+	// User ID of the sender of the parent message.
+	ParentUserID string `json:"parent_user_id"`
+	// User name of the sender of the parent message.
+	ParentUserName string `json:"parent_user_name"`
+	// User login of the sender of the parent message.
+	ParentUserLogin string `json:"parent_user_login"`
+	// An ID that identifies the parent message of the reply thread.
+	ThreadMessageID string `json:"thread_message_id"`
+	// User ID of the sender of the thread’s parent message.
+	ThreadUserID string `json:"thread_user_id"`
+	// User name of the sender of the thread’s parent message.
+	ThreadUserName string `json:"thread_user_name"`
+	// User login of the sender of the thread’s parent message.
+	ThreadUserLogin string `json:"thread_user_login"`
+}
+
+// ChatCheer represents metadata about a message cheer.
+type ChatCheer struct {
+	// The amount of Bits the user cheered.
+	Bits int `json:"bits"`
 }
