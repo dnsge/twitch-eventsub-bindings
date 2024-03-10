@@ -41,7 +41,10 @@ func (s *Subscription) ConditionChannelSubscriptionEnd() (*ConditionChannelSubsc
 	}
 }
 
-func (s *Subscription) ConditionChannelSubscriptionGift() (*ConditionChannelSubscriptionGift, error) {
+func (s *Subscription) ConditionChannelSubscriptionGift() (
+	*ConditionChannelSubscriptionGift,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -50,7 +53,10 @@ func (s *Subscription) ConditionChannelSubscriptionGift() (*ConditionChannelSubs
 	}
 }
 
-func (s *Subscription) ConditionChannelSubscriptionMessage() (*ConditionChannelSubscriptionMessage, error) {
+func (s *Subscription) ConditionChannelSubscriptionMessage() (
+	*ConditionChannelSubscriptionMessage,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -131,7 +137,10 @@ func (s *Subscription) ConditionChannelPointsRewardAdd() (*ConditionChannelPoint
 	}
 }
 
-func (s *Subscription) ConditionChannelPointsRewardUpdate() (*ConditionChannelPointsRewardUpdate, error) {
+func (s *Subscription) ConditionChannelPointsRewardUpdate() (
+	*ConditionChannelPointsRewardUpdate,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -140,7 +149,10 @@ func (s *Subscription) ConditionChannelPointsRewardUpdate() (*ConditionChannelPo
 	}
 }
 
-func (s *Subscription) ConditionChannelPointsRewardRemove() (*ConditionChannelPointsRewardRemove, error) {
+func (s *Subscription) ConditionChannelPointsRewardRemove() (
+	*ConditionChannelPointsRewardRemove,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -149,7 +161,10 @@ func (s *Subscription) ConditionChannelPointsRewardRemove() (*ConditionChannelPo
 	}
 }
 
-func (s *Subscription) ConditionChannelPointsRewardRedemptionAdd() (*ConditionChannelPointsRewardRedemptionAdd, error) {
+func (s *Subscription) ConditionChannelPointsRewardRedemptionAdd() (
+	*ConditionChannelPointsRewardRedemptionAdd,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -158,7 +173,10 @@ func (s *Subscription) ConditionChannelPointsRewardRedemptionAdd() (*ConditionCh
 	}
 }
 
-func (s *Subscription) ConditionChannelPointsRewardRedemptionUpdate() (*ConditionChannelPointsRewardRedemptionUpdate, error) {
+func (s *Subscription) ConditionChannelPointsRewardRedemptionUpdate() (
+	*ConditionChannelPointsRewardRedemptionUpdate,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -230,7 +248,10 @@ func (s *Subscription) ConditionDropEntitlementGrant() (*ConditionDropEntitlemen
 	}
 }
 
-func (s *Subscription) ConditionExtensionBitsTransactionCreate() (*ConditionExtensionBitsTransactionCreate, error) {
+func (s *Subscription) ConditionExtensionBitsTransactionCreate() (
+	*ConditionExtensionBitsTransactionCreate,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -302,7 +323,10 @@ func (s *Subscription) ConditionUserAuthorizationGrant() (*ConditionUserAuthoriz
 	}
 }
 
-func (s *Subscription) ConditionUserAuthorizationRevoke() (*ConditionUserAuthorizationRevoke, error) {
+func (s *Subscription) ConditionUserAuthorizationRevoke() (
+	*ConditionUserAuthorizationRevoke,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -338,7 +362,10 @@ func (s *Subscription) ConditionChannelChatClear() (*ConditionChannelChatClear, 
 	}
 }
 
-func (s *Subscription) ConditionChannelChatClearUserMessages() (*ConditionChannelChatClearUserMessages, error) {
+func (s *Subscription) ConditionChannelChatClearUserMessages() (
+	*ConditionChannelChatClearUserMessages,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -347,7 +374,10 @@ func (s *Subscription) ConditionChannelChatClearUserMessages() (*ConditionChanne
 	}
 }
 
-func (s *Subscription) ConditionChannelChatMessageDelete() (*ConditionChannelChatMessageDelete, error) {
+func (s *Subscription) ConditionChannelChatMessageDelete() (
+	*ConditionChannelChatMessageDelete,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
@@ -356,11 +386,38 @@ func (s *Subscription) ConditionChannelChatMessageDelete() (*ConditionChannelCha
 	}
 }
 
-func (s *Subscription) ConditionChannelChatNotification() (*ConditionChannelChatNotification, error) {
+func (s *Subscription) ConditionChannelChatNotification() (
+	*ConditionChannelChatNotification,
+	error,
+) {
 	if data, err := json.Marshal(s.Condition); err != nil {
 		return nil, err
 	} else {
 		var condition ConditionChannelChatNotification
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
+
+func (s *Subscription) ConditionChannelUnbanRequestCreate() (
+	*ConditionChannelUnbanRequestCreate,
+	error,
+) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelUnbanRequestCreate
+		return &condition, json.Unmarshal(data, &condition)
+	}
+}
+
+func (s *Subscription) ConditionChannelUnbanRequestResolve() (
+	*ConditionChannelUnbanRequestResolve,
+	error,
+) {
+	if data, err := json.Marshal(s.Condition); err != nil {
+		return nil, err
+	} else {
+		var condition ConditionChannelUnbanRequestResolve
 		return &condition, json.Unmarshal(data, &condition)
 	}
 }
