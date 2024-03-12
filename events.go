@@ -1272,5 +1272,5 @@ type ChannelUnbanRequestResolve struct {
 	ResolutionText string `json:"resolution_text"`
 	// Dictates whether the unban request was approved or denied.
 	// Can be the following: approved, canceled, denied
-	Status string `json:"status"`
+	Status ChannelUnbanRequestResolveStatus `json:"status"`
 }
